@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ofordu Precious Onyeka — Product Manager</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: { cream: '#FDFCF8', savor: '#F3EFE0' },
+                    borderRadius: { '4xl': '2rem' }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="antialiased" id="body">
+
+    <!-- Custom Cursor Follower -->
+    <div id="cursor-follower" class="hidden md:block"></div>
+
+    <!-- Grain Overlay -->
+    <div class="grain-overlay"></div>
+
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 h-20 flex items-center px-6 transition-all duration-500">
+        <div class="max-w-7xl mx-auto w-full flex items-center justify-center md:justify-center gap-8">
+            <a href="#about" class="nav-link text-sm">About</a>
+            <a href="#experience" class="nav-link text-sm">Experience</a>
+            <a href="#skills" class="nav-link text-sm">Skills</a>
+            <a href="#education" class="nav-link text-sm">Education</a>
+            <a href="#contact" class="nav-link text-sm">Contact</a>
+        </div>
+        <button id="menuBtn" class="md:hidden text-cream absolute right-6" aria-label="Menu">
+            <span class="iconify" data-icon="lucide:menu" data-width="24"></span>
+        </button>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="mobile-menu fixed inset-0 z-40 bg-stone-950/98 backdrop-blur-md flex flex-col items-center justify-center gap-8">
+        <button id="closeMenuBtn" class="absolute top-6 right-6 text-cream">
+            <span class="iconify" data-icon="lucide:x" data-width="28"></span>
+        </button>
+        <a href="#about" class="mobile-nav-link font-serif text-3xl text-stone-300 hover:text-cream transition-colors">About</a>
+        <a href="#experience" class="mobile-nav-link font-serif text-3xl text-stone-300 hover:text-cream transition-colors">Experience</a>
+        <a href="#skills" class="mobile-nav-link font-serif text-3xl text-stone-300 hover:text-cream transition-colors">Skills</a>
+        <a href="#education" class="mobile-nav-link font-serif text-3xl text-stone-300 hover:text-cream transition-colors">Education</a>
+        <a href="#contact" class="mobile-nav-link font-serif text-3xl text-stone-300 hover:text-cream transition-colors">Contact</a>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden">
+        <div class="hero-orb hero-orb-1"></div>
+        <div class="hero-orb hero-orb-2"></div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-6 py-32 w-full">
+            <div class="flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
+                <!-- Photo Container -->
+                <div class="hero-image-wrapper flex-shrink-0">
+                    <div class="hero-image-clip">
+                        <img src="https://z-cdn-media.chatglm.cn/files/aed59358-dc1e-4ed3-819d-adb04809387d.jpg?auth_key=1878498841-b3dbc2ee7908444995421995706c2e87-0-b5db6c0c2165357f3c98d8dc3e7d674d" alt="Ofordu Precious Onyeka" class="hero-image">
+                    </div>
+                </div>
+
+                <!-- Text Content -->
+                <div class="text-center lg:text-left">
+                    <div class="reveal-text mb-4">
+                        <p class="text-xs font-bold uppercase tracking-[0.4em] text-savor">Product Manager</p>
+                    </div>
+                    
+                    <h1 class="font-serif text-5xl md:text-7xl lg:text-8xl font-normal tracking-tight leading-[0.9] mb-8">
+                        <span class="reveal-text inline-block">Ofordu</span><br>
+                        <span class="reveal-text inline-block">Precious</span>
+                    </h1>
+
+                    <div class="reveal-text mb-10">
+                        <p class="text-stone-400 text-lg md:text-xl font-light leading-relaxed max-w-lg mx-auto lg:mx-0">
+                            Bridging the gap between strategic vision and technical execution to build products that truly matter.
+                        </p>
+                    </div>
+
+                    <div class="reveal-text flex flex-nowrap gap-4 justify-center lg:justify-start">
+                        <a href="#contact" class="magnetic-btn inline-flex items-center gap-2 bg-savor text-stone-900 px-6 md:px-8 py-4 rounded-full text-sm font-bold uppercase tracking-wide hover:scale-105 transition-transform duration-150 relative overflow-hidden">
+                            <span class="btn-text relative z-10 flex items-center gap-2">
+                                Let's Talk 
+                                <span class="iconify" data-icon="lucide:arrow-right" data-width="16"></span>
+                            </span>
+                        </a>
+                        <a href="#experience" class="magnetic-btn inline-flex items-center gap-2 border border-cream/20 text-cream px-6 md:px-8 py-4 rounded-full text-sm font-bold uppercase tracking-wide hover:bg-cream/10 transition-all duration-150">
+                            View Work
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-stone-500 scroll-indicator">
+                <span class="text-xs uppercase tracking-widest">Scroll</span>
+                <div class="w-px h-12 bg-gradient-to-b from-stone-500 to-transparent relative overflow-hidden">
+                    <div class="scroll-line-fill w-full absolute top-0 left-0 bg-savor"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="relative py-32 px-6 overflow-hidden">
+        <div class="max-w-6xl mx-auto relative z-10">
+            <div class="flex flex-col lg:flex-row gap-16 lg:gap-24">
+                <div class="lg:w-1/3">
+                    <div class="sticky top-24">
+                        <p class="text-xs font-bold uppercase tracking-[0.3em] text-savor mb-3 reveal-up">01</p>
+                        <h2 class="font-serif text-4xl md:text-5xl tracking-tight mb-4 reveal-up">About<br>Me<span class="text-savor">.</span></h2>
+                        <div class="section-divider reveal-up"></div>
+                    </div>
+                </div>
+                <div class="lg:w-2/3">
+                    <p class="text-lg md:text-xl font-light text-stone-300 leading-relaxed mb-8 reveal-up">
+                        A detail-oriented Product Manager with 2 years of experience in driving product strategy, managing backlogs, and aligning cross-functional teams to ensure successful product delivery. Skilled in stakeholder collaboration, organizing processes, and delivering high-quality products within deadlines. Eager to leverage my combined skills to drive impactful outcomes in the tech and fintech sectors.
+                    </p>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <div class="glass-card tilt-card rounded-2xl p-6 reveal-up">
+                            <div class="flex items-center gap-3 mb-2"><span class="iconify text-savor" data-icon="lucide:map-pin" data-width="18"></span><span class="text-xs uppercase tracking-widest text-stone-500">Location</span></div>
+                            <p class="text-stone-200 font-medium">Abuja, Nigeria</p>
+                        </div>
+                        <div class="glass-card tilt-card rounded-2xl p-6 reveal-up">
+                            <div class="flex items-center gap-3 mb-2"><span class="iconify text-savor" data-icon="lucide:briefcase" data-width="18"></span><span class="text-xs uppercase tracking-widest text-stone-500">Experience</span></div>
+                            <p class="text-stone-200 font-medium">2+ Years</p>
+                        </div>
+                        <div class="glass-card tilt-card rounded-2xl p-6 reveal-up">
+                            <div class="flex items-center gap-3 mb-2"><span class="iconify text-savor" data-icon="lucide:target" data-width="18"></span><span class="text-xs uppercase tracking-widest text-stone-500">Focus</span></div>
+                            <p class="text-stone-200 font-medium">Tech & Fintech</p>
+                        </div>
+                        <div class="glass-card tilt-card rounded-2xl p-6 reveal-up">
+                            <div class="flex items-center gap-3 mb-2"><span class="iconify text-savor" data-icon="lucide:mail" data-width="18"></span><span class="text-xs uppercase tracking-widest text-stone-500">Email</span></div>
+                            <p class="text-stone-200 font-medium">onyekaofordu@gmail.com</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="relative py-32 px-6 section-bg-gradient overflow-hidden">
+        <div class="max-w-6xl mx-auto relative z-10">
+            <div class="text-center mb-20">
+                <p class="text-xs font-bold uppercase tracking-[0.3em] text-savor mb-3 reveal-up">02</p>
+                <h2 class="font-serif text-4xl md:text-5xl tracking-tight mb-4 reveal-up">Professional Experience<span class="text-savor">.</span></h2>
+                <div class="section-divider mx-auto reveal-up"></div>
+            </div>
+
+            <div class="max-w-3xl mx-auto relative">
+                <div class="timeline-line hidden md:block"></div>
+
+                <!-- Experience 1 -->
+                <div class="timeline-item mb-16 reveal-up">
+                    <div class="timeline-dot-wrap hidden md:flex"><div class="timeline-dot"></div></div>
+                    <div class="glass-card tilt-card rounded-3xl p-8 md:p-10 relative overflow-hidden ml-0 md:ml-16">
+                        <div class="absolute top-0 right-0 w-40 h-40 bg-savor/5 rounded-full -translate-y-1/2 translate-x-1/2 blur-2xl"></div>
+                        <div class="relative z-10">
+                            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-6">
+                                <div>
+                                    <h3 class="font-serif text-xl md:text-2xl text-cream">Product Manager</h3>
+                                    <p class="text-savor font-medium">Smart Apps Ng</p>
+                                </div>
+                                <span class="text-xs font-bold uppercase tracking-[0.3em] text-stone-500 bg-stone-800/50 px-4 py-2 rounded-full whitespace-nowrap">Jan. 2024 - Present</span>
+                            </div>
+                            <ul class="space-y-3">
+                                <li class="flex items-start gap-3 text-stone-300 text-sm font-light leading-relaxed"><span class="iconify text-savor mt-1 flex-shrink-0" data-icon="lucide:chevron-right" data-width="14"></span>Implemented SmartPay, an automated payroll system for the Nasarawa Internal Revenue Service, optimizing salary payments for 525 civil servants and contributing to the company's revenue.</li>
+                                <li class="flex items-start gap-3 text-stone-300 text-sm font-light leading-relaxed"><span class="iconify text-savor mt-1 flex-shrink-0" data-icon="lucide:chevron-right" data-width="14"></span>Led the design and development of a revenue collection system for Abaji Local Government Abuja, managing stakeholders, conducting feature testing, and facilitating meetings, resulting in consistent monthly revenue generation for the company.</li>
+                                <li class="flex items-start gap-3 text-stone-300 text-sm font-light leading-relaxed"><span class="iconify text-savor mt-1 flex-shrink-0" data-icon="lucide:chevron-right" data-width="14"></span>Developing detailed scope documents, user flows and wireframes for key features across multiple web applications, ensuring clear direction for development teams and alignment with client needs.</li>
+                                <li class="flex items-start gap-3 text-stone-300 text-sm font-light leading-relaxed"><span class="iconify text-savor mt-1 flex-shrink-0" data-icon="lucide:chevron-right" data-width="14"></span>Playing a critical role in troubleshooting and resolving challenges across multiple projects, ensuring timely delivery of efficient and high-quality products.</li>
+                                <li class="flex items-start gap-3 text-stone-300 text-sm font-light leading-relaxed"><span class="iconify text-savor mt-1 flex-shrink-0" data-icon="lucide:chevron-right" data-width="14"></span>Managing the integration of third-party tools and services into various projects, ensuring seamless functionality and enhanced user experiences.</li>
+                                <li class="flex items-start gap-3 text-stone-300 text-sm font-light leading-relaxed"><span class="iconify text-savor mt-1 flex-shrink-0" data-icon="lucide:chevron-right" data-width="14"></span>Effectively communicating product vision, strategy, and progress to key stakeholders, including executives, sales teams, and customers, ensuring alignment and transparency.</li>
+                                <li class="flex items-start gap-3 text-stone-300 text-sm font-light leading-relaxed"><span class="iconify text-savor mt-1 flex-shrink-0" data-icon="lucide:chevron-right" data-width="14"></span>Overseeing development processes and teams to ensure products are being built to specifications, meeting deadlines, and adhering to quality standards.</li>
+                                <li class="flex items-start gap-3 text-stone-300 text-sm font-light leading-relaxed"><span class="iconify text-savor mt-1 flex-shrink-0" data-icon="lucide:chevron-right" data-width="14"></span>Coordinating client meetings to provide updates, explain features, and ensure smooth adoption and optimal usage of delivered products.</li>
+                                <li class="flex items-start gap-3 text-stone-300 text-sm font-light leading-relaxed"><span class="iconify text-savor mt-1 flex-shrink-0" data-icon="lucide:chevron-right" data-width="14"></span>Gathering and analyzing customer feedback to inform product improvements, enhance customer satisfaction, and drive continuous innovation.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Experience 2 -->
+                <div class="timeline-item reveal-up">
+                    <div class="timeline-dot-wrap hidden md:flex"><div class="timeline-dot"></div></div>
+                    <div class="glass-card tilt-card rounded-3xl p-8 md:p-10 relative overflow-hidden ml-0 md:ml-16">
+                        <div class="absolute top-0 right-0 w-40 h-40 bg-savor/5 rounded-full -translate-y-1/2 translate-x-1/2 blur-2xl"></div>
+                        <div class="relative z-10">
+                            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-6">
+                                <div>
+                                    <h3 class="font-serif text-xl md:text-2xl text-cream">Product Management Intern</h3>
+                                    <p class="text-savor font-medium">Smart Apps Ng</p>
+                                </div>
+                                <span class="text-xs font-bold uppercase tracking-[0.3em] text-stone-500 bg-stone-800/50 px-4 py-2 rounded-full whitespace-nowrap">Jan. 2023 - Dec. 2023</span>
+                            </div>
+                            <ul class="space-y-3">
+                                <li class="flex items-start gap-3 text-stone-300 text-sm font-light leading-relaxed"><span class="iconify text-savor mt-1 flex-shrink-0" data-icon="lucide:chevron-right" data-width="14"></span>Collaborated with cross-functional teams, including development, design, and marketing departments on multiple projects.</li>
+                                <li class="flex items-start gap-3 text-stone-300 text-sm font-light leading-relaxed"><span class="iconify text-savor mt-1 flex-shrink-0" data-icon="lucide:chevron-right" data-width="14"></span>Contributed ideas during brainstorming sessions aimed at generating innovative solutions for identified challenges during projects.</li>
+                                <li class="flex items-start gap-3 text-stone-300 text-sm font-light leading-relaxed"><span class="iconify text-savor mt-1 flex-shrink-0" data-icon="lucide:chevron-right" data-width="14"></span>Created user stories and flows to guide developers in building a biometric verification app for civil servants.</li>
+                                <li class="flex items-start gap-3 text-stone-300 text-sm font-light leading-relaxed"><span class="iconify text-savor mt-1 flex-shrink-0" data-icon="lucide:chevron-right" data-width="14"></span>Managed project timelines by coordinating with team members to ensure efficient progress toward goals.</li>
+                                <li class="flex items-start gap-3 text-stone-300 text-sm font-light leading-relaxed"><span class="iconify text-savor mt-1 flex-shrink-0" data-icon="lucide:chevron-right" data-width="14"></span>Participated in user testing sessions to gather insights for improving product usability and performance.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="relative py-32 px-6 overflow-hidden">
+        <div class="max-w-6xl mx-auto relative z-10">
+            <div class="text-center mb-20">
+                <p class="text-xs font-bold uppercase tracking-[0.3em] text-savor mb-3 reveal-up">03</p>
+                <h2 class="font-serif text-4xl md:text-5xl tracking-tight mb-4 reveal-up">Skills<span class="text-savor">.</span></h2>
+                <div class="section-divider mx-auto reveal-up"></div>
+            </div>
+
+            <!-- Technical Skills -->
+            <div class="mb-20 reveal-up">
+                <h3 class="text-xs font-bold uppercase tracking-[0.3em] text-stone-500 mb-8 text-center">Technical Skills</h3>
+                <div class="flex flex-wrap gap-4 justify-center">
+                    <div class="tech-icon-card tilt-card"><span class="iconify" data-icon="logos:figma"></span><span class="text-xs text-stone-400 mt-1">Figma</span></div>
+                    <div class="tech-icon-card tilt-card"><span class="iconify text-savor" data-icon="lucide:pen-tool" data-width="28"></span><span class="text-xs text-stone-400 mt-1">Wireframing & Prototyping</span></div>
+                    <div class="tech-icon-card tilt-card"><span class="iconify text-savor" data-icon="lucide:rotate-cw" data-width="28"></span><span class="text-xs text-stone-400 mt-1">Scrum Framework</span></div>
+                </div>
+            </div>
+
+            <!-- Soft Skills -->
+            <div class="reveal-up">
+                <h3 class="text-xs font-bold uppercase tracking-[0.3em] text-stone-500 mb-8 text-center">Soft Skills</h3>
+                <div class="flex flex-wrap gap-3 justify-center">
+                    <span class="skill-pill"><span class="iconify text-savor mr-2" data-icon="lucide:users" data-width="16"></span>Stakeholder Management</span>
+                    <span class="skill-pill"><span class="iconify text-savor mr-2" data-icon="lucide:message-circle" data-width="16"></span>Excellent Communication</span>
+                    <span class="skill-pill"><span class="iconify text-savor mr-2" data-icon="lucide:handshake" data-width="16"></span>Teamwork and Collaboration</span>
+                    <span class="skill-pill"><span class="iconify text-savor mr-2" data-icon="lucide:brain" data-width="16"></span>Analytical Thinking</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education & Certifications -->
+    <section id="education" class="relative py-32 px-6 section-bg-gradient overflow-hidden">
+        <div class="max-w-6xl mx-auto relative z-10">
+            <div class="text-center mb-20">
+                <p class="text-xs font-bold uppercase tracking-[0.3em] text-savor mb-3 reveal-up">04</p>
+                <h2 class="font-serif text-4xl md:text-5xl tracking-tight mb-4 reveal-up">Education & Certifications<span class="text-savor">.</span></h2>
+                <div class="section-divider mx-auto reveal-up"></div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-5xl mx-auto">
+                <div class="reveal-up">
+                    <div class="glass-card tilt-card rounded-3xl p-8 relative overflow-hidden h-full">
+                        <div class="absolute -bottom-4 -right-4 opacity-5"><span class="iconify" data-icon="lucide:graduation-cap" data-width="140" style="color:#F3EFE0;"></span></div>
+                        <div class="relative z-10">
+                            <div class="w-14 h-14 rounded-2xl bg-savor/10 flex items-center justify-center mb-6"><span class="iconify text-savor" data-icon="lucide:graduation-cap" data-width="28"></span></div>
+                            <h4 class="font-serif text-2xl text-cream mb-1">Bachelor of Science-Microbiology</h4>
+                            <p class="text-stone-400 text-sm mb-1">University of Ilorin</p>
+                            <p class="text-stone-500 text-xs mb-4">Ilorin, Nigeria</p>
+                            <div class="mt-6 pt-4 border-t border-white/5"><span class="text-xs font-bold uppercase tracking-[0.3em] text-stone-500">Jul. 2023 - Dec. 2022</span></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="reveal-up">
+                    <h3 class="text-xs font-bold uppercase tracking-[0.3em] text-stone-500 mb-6">Certifications</h3>
+                    <div class="space-y-4 mb-8">
+                        <div class="cert-badge tilt-card group"><div class="flex items-start gap-4"><div class="w-10 h-10 rounded-xl bg-savor/10 flex items-center justify-center flex-shrink-0 group-hover:bg-savor/20 transition-colors"><span class="iconify text-savor" data-icon="lucide:award" data-width="18"></span></div><div><p class="text-sm font-medium text-stone-200 mb-1">Certificate of Completion, PaymentLogue, Payments 360 Course</p><p class="text-xs text-stone-500">Dec. 2024</p></div></div></div>
+                        <div class="cert-badge tilt-card group"><div class="flex items-start gap-4"><div class="w-10 h-10 rounded-xl bg-savor/10 flex items-center justify-center flex-shrink-0 group-hover:bg-savor/20 transition-colors"><span class="iconify text-savor" data-icon="lucide:award" data-width="18"></span></div><div><p class="text-sm font-medium text-stone-200 mb-1">Certificate of Completion, Enoverlab, Product Management Training</p><p class="text-xs text-stone-500">Aug. 2024</p></div></div></div>
+                        <div class="cert-badge tilt-card group"><div class="flex items-start gap-4"><div class="w-10 h-10 rounded-xl bg-savor/10 flex items-center justify-center flex-shrink-0 group-hover:bg-savor/20 transition-colors"><span class="iconify text-savor" data-icon="lucide:award" data-width="18"></span></div><div><p class="text-sm font-medium text-stone-200 mb-1">Certificate of Achievement, Spearhead Training, Communication, Customer Service, and Work-Based Behavior</p><p class="text-xs text-stone-500">Dec. 2023</p></div></div></div>
+                        <div class="cert-badge tilt-card group"><div class="flex items-start gap-4"><div class="w-10 h-10 rounded-xl bg-savor/10 flex items-center justify-center flex-shrink-0 group-hover:bg-savor/20 transition-colors"><span class="iconify text-savor" data-icon="lucide:award" data-width="18"></span></div><div><p class="text-sm font-medium text-stone-200 mb-1">Certificate of Completion, Side Hustle, Product Management Internship</p><p class="text-xs text-stone-500">Nov. 2022</p></div></div></div>
+                    </div>
+                    <div class="border-t border-white/5 pt-6">
+                        <p class="text-xs uppercase tracking-widest text-stone-500"><span class="iconify text-savor mr-2 inline-block align-middle" data-icon="lucide:info" data-width="14"></span>Reference Available On Request</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="relative py-32 px-6 overflow-hidden">
+        <div class="max-w-6xl mx-auto relative z-10">
+            <div class="flex flex-col lg:flex-row gap-16 lg:gap-24">
+                <div class="lg:w-1/3">
+                    <div class="sticky top-24">
+                        <p class="text-xs font-bold uppercase tracking-[0.3em] text-savor mb-3 reveal-up">05</p>
+                        <h2 class="font-serif text-4xl md:text-5xl tracking-tight mb-4 reveal-up">Let's<br>Connect<span class="text-savor">.</span></h2>
+                        <div class="section-divider mb-6 reveal-up"></div>
+                        <p class="text-stone-400 font-light leading-relaxed reveal-up">I'm always open to new opportunities and collaborations. Let's build something impactful together.</p>
+                    </div>
+                </div>
+                <div class="lg:w-2/3">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10 reveal-up">
+                        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=onyekaofordu@gmail.com" target="_blank" rel="noopener noreferrer" class="contact-link"><span class="iconify text-savor" data-icon="lucide:mail" data-width="20"></span><div><p class="text-xs uppercase tracking-widest text-stone-500 mb-1">Email</p><p class="text-sm text-stone-200">onyekaofordu@gmail.com</p></div></a>
+                        <a href="https://wa.me/2347033035759" target="_blank" rel="noopener noreferrer" class="contact-link"><span class="iconify text-savor" data-icon="mdi:whatsapp" data-width="20"></span><div><p class="text-xs uppercase tracking-widest text-stone-500 mb-1">WhatsApp</p><p class="text-sm text-stone-200">+ (234) 7033035759</p></div></a>
+                        <a href="#" class="contact-link"><span class="iconify text-savor" data-icon="lucide:linkedin" data-width="20"></span><div><p class="text-xs uppercase tracking-widest text-stone-500 mb-1">LinkedIn</p><p class="text-sm text-stone-200">Ofordu Precious</p></div></a>
+                        <a href="#" class="contact-link"><span class="iconify text-savor" data-icon="lucide:map-pin" data-width="20"></span><div><p class="text-xs uppercase tracking-widest text-stone-500 mb-1">Location</p><p class="text-sm text-stone-200">Abuja, Nigeria</p></div></a>
+                    </div>
+                    <form id="contactForm" class="space-y-5 reveal-up">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                            <div><label class="text-xs uppercase tracking-widest text-stone-500 mb-2 block">Name</label><input type="text" placeholder="Your name" class="form-input w-full bg-white/5 border border-white/10 rounded-xl px-5 py-3.5 text-stone-200 text-sm placeholder:text-stone-600 focus:outline-none focus:border-savor/50 focus:bg-white/[0.08] transition-all duration-300"></div>
+                            <div><label class="text-xs uppercase tracking-widest text-stone-500 mb-2 block">Email</label><input type="email" placeholder="Your email" class="form-input w-full bg-white/5 border border-white/10 rounded-xl px-5 py-3.5 text-stone-200 text-sm placeholder:text-stone-600 focus:outline-none focus:border-savor/50 focus:bg-white/[0.08] transition-all duration-300"></div>
+                        </div>
+                        <div><label class="text-xs uppercase tracking-widest text-stone-500 mb-2 block">Message</label><textarea rows="4" placeholder="Tell me about your project..." class="form-input w-full bg-white/5 border border-white/10 rounded-xl px-5 py-3.5 text-stone-200 text-sm placeholder:text-stone-600 focus:outline-none focus:border-savor/50 focus:bg-white/[0.08] transition-all duration-300 resize-none"></textarea></div>
+                        <button type="submit" class="magnetic-btn inline-flex items-center gap-2 bg-savor text-stone-900 px-8 py-4 rounded-full text-sm font-bold uppercase tracking-wide hover:scale-105 transition-transform duration-150">Send Message <span class="iconify" data-icon="lucide:send" data-width="16"></span></button>
+                        <div id="formMessage" class="hidden text-sm text-savor mt-3"></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t border-white/5 py-12 px-6">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-center md:justify-between gap-6">
+            <div class="flex items-center gap-6">
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=onyekaofordu@gmail.com" target="_blank" class="text-stone-500 hover:text-savor transition-colors duration-300"><span class="iconify" data-icon="lucide:mail" data-width="18"></span></a>
+                <a href="https://wa.me/2347033035759" target="_blank" class="text-stone-500 hover:text-savor transition-colors duration-300"><span class="iconify" data-icon="mdi:whatsapp" data-width="18"></span></a>
+            </div>
+            <p class="text-stone-600 text-xs">© 2025 Ofordu Precious Onyeka</p>
+        </div>
+    </footer>
+
+    <button id="backToTop" class="fixed bottom-8 right-8 w-12 h-12 rounded-full bg-savor/10 border border-savor/20 text-savor flex items-center justify-center opacity-0 pointer-events-none transition-all duration-300 hover:bg-savor/20 hover:scale-110 z-40" aria-label="Back to top">
+        <span class="iconify" data-icon="lucide:arrow-up" data-width="20"></span>
+    </button>
+
+    <script src="script.js"></script>
+</body>
+</html>
