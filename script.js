@@ -1,8 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     
-    // ============================
     // Custom Cursor Follower
-    // ============================
     const cursor = document.getElementById('cursor-follower');
     const interactiveElements = document.querySelectorAll('a, button, .skill-pill, .form-input');
 
@@ -18,32 +16,30 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // ============================
     // 3D Tilt Effect on Cards
-    // ============================
+    const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
     const tiltCards = document.querySelectorAll('.tilt-card');
 
-    tiltCards.forEach(card => {
-        card.addEventListener('mousemove', (e) => {
-            const rect = card.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
-            const centerX = rect.width / 2;
-            const centerY = rect.height / 2;
-            const rotateX = (y - centerY) / 15;
-            const rotateY = (centerX - x) / 15;
-            
-            card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
-        });
+    if (!isTouchDevice) {
+        tiltCards.forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                const rotateX = (y - centerY) / 15;
+                const rotateY = (centerX - x) / 15;
+                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+            });
 
-        card.addEventListener('mouseleave', () => {
-            card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
+            });
         });
-    });
+    }
 
-    // ============================
     // Mobile menu toggle
-    // ============================
     const menuBtn = document.getElementById('menuBtn');
     const closeMenuBtn = document.getElementById('closeMenuBtn');
     const mobileMenu = document.getElementById('mobileMenu');
@@ -64,11 +60,8 @@ document.addEventListener('DOMContentLoaded', () => {
         mobileNavLinks.forEach(link => link.addEventListener('click', closeMenu));
     }
 
-    // ============================
-    // Navbar scroll effect (Glassmorphism)
-    // ============================
+    // Navbar scroll effect
     const navbar = document.getElementById('navbar');
-    
     const handleNavScroll = () => {
         if (window.scrollY > 80) {
             navbar.style.background = 'rgba(12, 10, 9, 0.85)';
@@ -80,42 +73,26 @@ document.addEventListener('DOMContentLoaded', () => {
             navbar.style.borderBottom = 'none';
         }
     };
-    
     window.addEventListener('scroll', handleNavScroll);
 
-    // ============================
     // Active nav link highlighting
-    // ============================
     const sections = document.querySelectorAll('section[id]');
     const navLinks = document.querySelectorAll('.nav-link');
-
     const handleActiveLink = () => {
         let current = '';
         sections.forEach(section => {
             const sectionTop = section.offsetTop - 120;
-            if (window.scrollY >= sectionTop) {
-                current = section.getAttribute('id');
-            }
+            if (window.scrollY >= sectionTop) { current = section.getAttribute('id'); }
         });
         navLinks.forEach(link => {
             link.classList.remove('active');
-            if (link.getAttribute('href') === '#' + current) {
-                link.classList.add('active');
-            }
+            if (link.getAttribute('href') === '#' + current) { link.classList.add('active'); }
         });
     };
-
     window.addEventListener('scroll', handleActiveLink);
 
-    // ============================
-    // Scroll Reveal Animations (Intersection Observer)
-    // ============================
-    const observerOptions = {
-        root: null,
-        rootMargin: '0px 0px -100px 0px',
-        threshold: 0.1
-    };
-
+    // Scroll Reveal Animations
+    const observerOptions = { root: null, rootMargin: '0px 0px -50px 0px', threshold: 0.1 };
     const revealObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -124,57 +101,38 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }, observerOptions);
+    document.querySelectorAll('.reveal-up, .reveal-text, .timeline-line, .timeline-item').forEach(el => { revealObserver.observe(el); });
 
-    document.querySelectorAll('.reveal-up, .reveal-text, .timeline-line, .timeline-item').forEach(el => {
-        revealObserver.observe(el);
-    });
-
-    // ============================
     // Magnetic Button Logic
-    // ============================
     const magneticBtns = document.querySelectorAll('.magnetic-btn');
-
-    magneticBtns.forEach(btn => {
-        btn.addEventListener('mousemove', (e) => {
-            const rect = btn.getBoundingClientRect();
-            const x = e.clientX - rect.left - rect.width / 2;
-            const y = e.clientY - rect.top - rect.height / 2;
-            btn.style.transform = `translate(${x * 0.2}px, ${y * 0.2}px) scale(1.05)`;
+    if (!isTouchDevice) {
+        magneticBtns.forEach(btn => {
+            btn.addEventListener('mousemove', (e) => {
+                const rect = btn.getBoundingClientRect();
+                const x = e.clientX - rect.left - rect.width / 2;
+                const y = e.clientY - rect.top - rect.height / 2;
+                btn.style.transform = `translate(${x * 0.2}px, ${y * 0.2}px) scale(1.05)`;
+            });
+            btn.addEventListener('mouseleave', () => { btn.style.transform = 'translate(0px, 0px) scale(1)'; });
         });
+    }
 
-        btn.addEventListener('mouseleave', () => {
-            btn.style.transform = 'translate(0px, 0px) scale(1)';
-        });
-    });
-
-    // ============================
     // Back to top button
-    // ============================
     const backToTop = document.getElementById('backToTop');
-    
     const handleBackToTopVisibility = () => {
-        if (window.scrollY > 600) {
-            backToTop.style.opacity = '1';
-            backToTop.style.pointerEvents = 'auto';
-        } else {
-            backToTop.style.opacity = '0';
-            backToTop.style.pointerEvents = 'none';
-        }
+        if (window.scrollY > 600) { backToTop.style.opacity = '1'; backToTop.style.pointerEvents = 'auto'; } 
+        else { backToTop.style.opacity = '0'; backToTop.style.pointerEvents = 'none'; }
     };
-
     window.addEventListener('scroll', handleBackToTopVisibility);
-    
-    backToTop.addEventListener('click', () => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
+    backToTop.addEventListener('click', () => { window.scrollTo({ top: 0, behavior: 'smooth' }); });
 
-    // ============================
-    // Contact form validation
-    // ============================
+    // ======================================
+    // ACTUAL WORKING CONTACT FORM WITH FORMSPREE
+    // ======================================
     const contactForm = document.getElementById('contactForm');
     const formMessage = document.getElementById('formMessage');
 
-    contactForm.addEventListener('submit', (e) => {
+    contactForm.addEventListener('submit', async (e) => {
         e.preventDefault();
         const inputs = contactForm.querySelectorAll('input, textarea');
         let allFilled = true;
@@ -194,12 +152,34 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-        formMessage.textContent = '✓ Message sent successfully! I\'ll get back to you soon.';
-        formMessage.style.color = '#F3EFE0';
+        // Show "Sending..." while it processes
+        formMessage.textContent = 'Sending...';
+        formMessage.style.color = '#a8a29e';
         formMessage.classList.remove('hidden');
-        contactForm.reset();
 
-        setTimeout(() => { formMessage.classList.add('hidden'); }, 5000);
+        // YOUR FORMSPREE LINK
+        const formspreeLink = 'https://formspree.io/f/mgoddzod';
+
+        try {
+            const formData = new FormData(contactForm);
+            const response = await fetch(formspreeLink, {
+                method: 'POST',
+                body: formData,
+                headers: { 'Accept': 'application/json' }
+            });
+
+            if (response.ok) {
+                formMessage.textContent = '✓ Message sent successfully! I\'ll get back to you soon.';
+                formMessage.style.color = '#F3EFE0';
+                contactForm.reset();
+            } else {
+                formMessage.textContent = 'Oops! There was a problem sending your message.';
+                formMessage.style.color = '#ef4444';
+            }
+        } catch (error) {
+            formMessage.textContent = 'Oops! There was a network error.';
+            formMessage.style.color = '#ef4444';
+        }
     });
 
 });
