@@ -1,6 +1,6 @@
 /* Base Setup */
 * { margin: 0; padding: 0; box-sizing: border-box; }
-body { font-family: 'Inter', sans-serif; background: #0c0a09; color: #f5f5f4; overflow-x: hidden; }
+html, body { font-family: 'Inter', sans-serif; background: #0c0a09; color: #f5f5f4; overflow-x: hidden; }
 h1, h2, h3, h4, .font-serif { font-family: 'Playfair Display', serif; }
 html { scroll-behavior: smooth; }
 
@@ -76,7 +76,12 @@ html { scroll-behavior: smooth; }
 /* Hero Image Masking Animation */
 .hero-image-wrapper {
     position: relative;
-    width: 300px; height: 380px;
+    width: 240px; height: 300px;
+}
+@media (min-width: 768px) {
+    .hero-image-wrapper {
+        width: 300px; height: 380px;
+    }
 }
 .hero-image-clip {
     width: 100%; height: 100%;
@@ -150,6 +155,14 @@ html { scroll-behavior: smooth; }
     background: rgba(28, 25, 23, 0.6);
     border-color: rgba(255, 255, 255, 0.15);
     box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+}
+
+/* Disable 3D tilt on mobile to fix scrolling bugs and animation freezing */
+@media (max-width: 767px) {
+    .tilt-card {
+        transform: none !important;
+        transform-style: flat !important;
+    }
 }
 
 /* Skill Pill */
